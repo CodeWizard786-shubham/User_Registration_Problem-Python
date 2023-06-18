@@ -2,8 +2,8 @@
 @Author: shubham shirke
 @Date: 2023-06-18 11:30:30
 @Last Modified by: shubham shirke
-@Last Modified time: 2023-06-18 13:40:30
-@Title : Validate last name in user registration problem.
+@Last Modified time: 2023-06-18 15:40:30
+@Title : Validate email in user registration problem.
 '''
 
 from log import logger   
@@ -20,10 +20,13 @@ def main():
             none
     """
     print("--User Registration Validation System--")
-    first_name= input("Enter first name: ")
+    first_name = input("Enter first name: ")
     register.validate_name(first_name)
-    last_name= input("Enter last name: ")
+    last_name = input("Enter last name: ")
     register.validate_name(last_name)
+    email = input("Enter email id: ")
+    register.validate_email(email)
+
 
 
 if __name__ == "__main__":
