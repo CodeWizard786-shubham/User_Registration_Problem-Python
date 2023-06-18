@@ -63,14 +63,14 @@ class UserRegistration:
         def validate_password(password):
                 """
                 Description : 
-                        This function validates password to have minimum 8 characters and atleast 1 uppercase letter.
+                        This function validates password to have minimum 8 characters,atleast 1 uppercase letter and 1 atleast 1 numeric number.
                 Parameters : 
                         password : user input string
                 Returns    :
                         none
                         prints message.
                 """
-                pattern = r"^(?=.*[A-Z]).{8,}$"
+                pattern = r"^(?=.*[A-Z])(?=.*\d).{8,}$"
                 result = re.match(pattern, password)
                 if result:
                         logger.info("Password Accepted")
