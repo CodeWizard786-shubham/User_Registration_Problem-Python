@@ -2,8 +2,8 @@
 @Author: shubham shirke
 @Date: 2023-06-18 11:30:30
 @Last Modified by: shubham shirke
-@Last Modified time: 2023-06-18 17:40:30
-@Title : Validate password in user registration problem to have minimum 8 characters.
+@Last Modified time: 2023-06-18 18:15:30
+@Title : Validate password in user registration problem to have minimum 8 characters with atleast 1 uppercase letter.
 '''
 
 from log import logger   
