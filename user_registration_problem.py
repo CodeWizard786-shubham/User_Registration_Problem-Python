@@ -10,7 +10,8 @@ def validate_name(name):
     Parameters : 
             first_name : user input string
     Returns    :
-            none
+            none 
+            prints message.
     """
     pattern = r"^[A-Z][a-z]{2,}$"
     result = re.match(pattern, name) is not None
@@ -28,6 +29,7 @@ def validate_email(email):
             email : user input email id
     Returns    :
             none
+            prints message.
     """
     pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
     result = re.match(pattern, email) is not None
@@ -36,3 +38,21 @@ def validate_email(email):
     else:
         logger.warning("Email not accepted: enter valid email id")
 
+
+def validate_phone_number(phone_number):
+    """
+    Description : 
+            This function validates phone number by matching user input string with regex pattern.
+            The regex pattern accepts phone number with +,2 digit country code and 10 digit phone number starting with 6-9.
+    Parameters : 
+            phone_number : user input phone number.
+    Returns    :
+            none
+            prints message.
+    """
+    pattern = r"^\+[0-9]{2}\s[6-9]\d{9}$"
+    result = re.match(pattern, phone_number)
+    if result:
+        logger.info("Phone Number Accepted")
+    else:
+        logger.warning("Phone Number not accepted: enter valid phone number with country code")
