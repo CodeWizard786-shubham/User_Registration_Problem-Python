@@ -1,12 +1,10 @@
 '''
 @Author: shubham shirke
-@Date: 2023-06-19 13:30:30
+@Date: 2023-06-19 11:30:30
 @Last Modified by: shubham shirke
-@Last Modified time: 2023-06-19 14:15:30
-@Title : Perform unit testing for each function in user registration. 
+@Last Modified time: 2023-06-19 13:50:30
+@Title : unit testing for each function. 
 '''
-
-
 import unittest
 
 from user_registration_problem import UserRegistration
@@ -15,30 +13,29 @@ class UserRegistrationTest(unittest.TestCase):
 
     # validate name for pass test
     def test_validate_name_valid(self):
-        name = "Shubham"
+        name = "Test"
         result = UserRegistration.validate_name(name)
         self.assertTrue(result)
 
     # validate name for fail test
     def test_validate_name_invalid(self):
-        name = "shubham"
-        result = UserRegistration.validate_name(name)
+        name1 = "test"
+        result = UserRegistration.validate_name(name1)
         self.assertFalse(result)
 
-    # validate email name for pass test
+    # validate list of emails name for pass test
     def test_validate_email_valid(self):
-        email = "test12@gmail.com"
-        result = UserRegistration.validate_email(email)
-        self.assertTrue(result)
+        emails = ["test12@gmail.com","abc@yahoo.com","abc-100@yahoo.com","abc.100@yahoo.com","abc111@abc.com","abc-100@abc.net","abc.100@abc.com.au","abc@1.com","abc@gmail.com","abc+100@gmail.com"]
+        for email in emails:
+            result = UserRegistration.validate_email(email)
+            self.assertTrue(result)
 
-    # validate email for fail test
+    # validate list of emails for fail test
     def test_validate_email_Invalid(self):
-        email_1 = "test12@gmail"
-        email_2 = "test12gmail.com"
-        result1=UserRegistration.validate_email(email_1)
-        self.assertFalse(result1)
-        result2 = UserRegistration.validate_email(email_2)
-        self.assertFalse(result2)
+        emails = ["test12@gmail","abc123@gmail.a","abc@gmail.com.1a","abc@abc@gmail.com","abc@%*.com","abc()*@gmail.com","abc123@.com"]
+        for email in emails:
+            result = UserRegistration.validate_email(email)
+            self.assertFalse(result)
 
     # validate phone number for pass test
     def test_validate_phone_number_valid(self):
