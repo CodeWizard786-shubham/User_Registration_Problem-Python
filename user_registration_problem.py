@@ -12,15 +12,17 @@ class UserRegistration:
                 Parameters : 
                         first_name : user input string
                 Returns    :
-                        none 
-                        prints message.
+                        True : if pattern matches
+                        False : pattern does not match
                 """
                 pattern = r"^[A-Z][a-z]{2,}$"
                 result = re.match(pattern, name) is not None
                 if result:
                         logger.info("Name Accepted")
+                        return True
                 else:
                         logger.warning("Name not accepted: enter name with first letter as capital and minimum 3 characters.")
+                        return False
 
     
         def validate_email(email):
@@ -30,15 +32,17 @@ class UserRegistration:
                 Parameters : 
                         email : user input email id
                 Returns    :
-                        none
-                        prints message.
+                        True : if pattern matches
+                        False : pattern does not match
                 """
                 pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
                 result = re.match(pattern, email) is not None
                 if result:
                         logger.info("Email id Accepted")
+                        return True
                 else:
                         logger.warning("Email not accepted: enter valid email id")
+                        return False
 
 
         def validate_phone_number(phone_number):
@@ -49,15 +53,17 @@ class UserRegistration:
                 Parameters : 
                         phone_number : user input phone number.
                 Returns    :
-                        none
-                        prints message.
+                        True : if pattern matches
+                        False : pattern does not match
                 """
                 pattern = r"^\+[0-9]{2}\s[6-9]\d{9}$"
                 result = re.match(pattern, phone_number)
                 if result:
                         logger.info("Phone Number Accepted")
+                        return True
                 else:
                         logger.warning("Phone Number not accepted: enter valid phone number with country code")
+                        return False
 
         
         def validate_password(password):
@@ -67,12 +73,14 @@ class UserRegistration:
                 Parameters : 
                         password : user input string
                 Returns    :
-                        none
-                        prints message.
+                        True : if pattern matches
+                        False : pattern does not match
                 """
-                pattern = r"^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$"
+                pattern = r'^(?=.*[0-9])(?=.*[A-Z])(?=.*[~!@#$%^&*_])(?!.*[~!@#$%^&*_].*[~!@#$%^&*_]).{8,}$'
                 result = re.match(pattern, password)
                 if result:
                         logger.info("Password Accepted")
+                        return True
                 else:
-                        logger.warning("Password not accepted: enter valid password with minimum 8 characters")
+                        logger.warning("Password not accepted: enter valid password with minimum 8 characters,atleast one digit and only one special character.")
+                        return False
