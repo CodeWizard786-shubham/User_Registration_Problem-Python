@@ -2,8 +2,8 @@
 @Author: shubham shirke
 @Date: 2023-06-18 11:30:30
 @Last Modified by: shubham shirke
-@Last Modified time: 2023-06-18 19:50:30
-@Title : Validate password in user registration problem to have minimum 8 characters,atleast 1 uppercase letter,atleast 1 numeric number and only one special character.
+@Last Modified time: 2023-06-18 13:50:30
+@Title : Refactor User registration problem and perform unit testing. 
 '''
 
 from log import logger   
@@ -33,8 +33,14 @@ def main():
     # phone number
     phone_number = input("Enter Phone Number: ")
     register.validate_phone_number(phone_number)
+
     # input password
-    password = input("Enter Password: ")
+    print("Enter password")
+    print("* minimum 8 characters")
+    print("* atleast 1 uppercase")
+    print("* atleast 1 digit")
+    print("* one special character")
+    password = input("Password: ")
     register.validate_password(password)
 
 
