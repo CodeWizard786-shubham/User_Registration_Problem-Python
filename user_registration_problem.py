@@ -1,4 +1,3 @@
-
 from log import logger
 
 import re
@@ -35,13 +34,13 @@ class UserRegistration:
                         True : if pattern matches
                         False : pattern does not match
                 """
-                pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                pattern = r'^[a-zA-Z0-9\+-]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.][a-zA-Z]{2,3}){1,2}$'
                 result = re.match(pattern, email) is not None
                 if result:
-                        logger.info("Email id Accepted")
+                        logger.info(f"{email} id Accepted")
                         return True
                 else:
-                        logger.warning("Email not accepted: enter valid email id")
+                        logger.info(f"{email} not accepted: enter valid email id")
                         return False
 
 
